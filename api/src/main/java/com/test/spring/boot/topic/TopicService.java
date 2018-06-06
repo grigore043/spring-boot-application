@@ -2,8 +2,6 @@ package com.test.spring.boot.topic;
 
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-
 @Service
 public class TopicService {
 
