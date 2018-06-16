@@ -1,6 +1,12 @@
 package com.test.spring.boot.topic;
 
+import com.test.spring.boot.model.Topic;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TopicService {
