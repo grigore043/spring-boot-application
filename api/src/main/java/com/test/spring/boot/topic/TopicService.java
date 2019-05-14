@@ -1,45 +1,38 @@
 package com.test.spring.boot.topic;
 
+import com.test.spring.boot.TopicRepository;
 import com.test.spring.boot.model.Topic;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class TopicService {
 
-    private List<Topic> topics = new ArrayList<>(Arrays.asList(
-            new Topic("Spring", "Spring Framework", "Spring Framework Description"),
-            new Topic("Java", "Core Java", "Core Java Description"),
-            new Topic("Javascript", "Javascript", "Description Javascript")));
+    @Autowired
+    private TopicRepository topicRepository;
 
     public List<Topic> getTopics() {
+        List<Topic> topics = new ArrayList<>();
+        topicRepository.findAll().forEach(topics::add);
         return topics;
     }
 
     public Topic getTopic(String topicId) {
-        Optional<Topic> topicOptionalObject = topics.stream().filter(t -> t.getId().endsWith(topicId)).findFirst();
-        return topicOptionalObject.orElse(new Topic());
+        return topicRepository.findOne(topicId);
     }
 
     public void addTopic(Topic topic) {
-        topics.add(topic);
+        topicRepository.save(topic);
     }
 
     public void updateTopic(Topic updateTopic, String topicId) {
-        for (Topic topic : topics) {
-            if (topic.getId().endsWith(topicId)) {
-                topic.setName(updateTopic.getName());
-                topic.setDescription(updateTopic.getDescription());
-                break;
-            }
-        }
+        topicRepository.save(updateTopic);
     }
 
     public void deleteTopic(String topicId) {
-        topics.removeIf(topic -> topic.getId().equals(topicId));
+        topicRepository.delete(topicId);
     }
 }
