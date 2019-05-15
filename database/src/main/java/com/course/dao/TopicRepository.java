@@ -1,6 +1,6 @@
-package com.test.spring.boot;
+package com.course.dao;
 
-import com.test.spring.boot.model.Topic;
+import com.course.model.Topic;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

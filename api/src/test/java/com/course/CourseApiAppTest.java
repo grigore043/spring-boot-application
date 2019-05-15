@@ -1,4 +1,4 @@
-package com.test.spring.boot;
+package com.course;
 
 public class CourseApiAppTest {
 

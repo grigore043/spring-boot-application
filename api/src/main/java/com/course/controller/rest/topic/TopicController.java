@@ -1,38 +1,40 @@
-package com.test.spring.boot.topic;
+package com.course.controller.rest.topic;
 
-import com.test.spring.boot.model.Topic;
+import com.course.topic.TopicService;
+import com.course.model.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class TopicController {
 
     @Autowired
     private TopicService topicService;
 
-    @RequestMapping("/topics")
+    @GetMapping("/topics")
     public List<Topic> getAllTopics() {
         return topicService.getTopics();
     }
 
-    @RequestMapping("/topics/{topicId}")
+    @GetMapping("/topics/{topicId}")
     public Topic getTopic(@PathVariable String topicId) {
         return topicService.getTopic(topicId);
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/topics")
+    @PostMapping(value = "/topics")
     public void addTopic(@RequestBody Topic topic) {
         topicService.addTopic(topic);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/topics/{topicId}")
+    @PutMapping(value = "/topics/{topicId}")
     public void updateTopic(@RequestBody Topic topic, @PathVariable String topicId) {
         topicService.updateTopic(topic, topicId);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{topicId}")
+    @DeleteMapping(value = "/topics/{topicId}")
     public void deleteTopic(@PathVariable Topic topicId) {
         topicService.deleteTopic(topicId);
     }

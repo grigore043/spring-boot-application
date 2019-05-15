@@ -1,12 +1,13 @@
-package com.test.spring.boot.topic;
+package com.course.topic;
 
-import com.test.spring.boot.TopicRepository;
-import com.test.spring.boot.model.Topic;
+import com.course.dao.TopicRepository;
+import com.course.model.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TopicService {
@@ -21,7 +22,8 @@ public class TopicService {
     }
 
     public Topic getTopic(String topicId) {
-        return topicRepository.findById(topicId).get();
+        Optional<Topic> topic = topicRepository.findById(topicId);
+        return topic.orElse(null);
     }
 
     public void addTopic(Topic topic) {

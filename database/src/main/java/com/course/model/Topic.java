@@ -1,4 +1,4 @@
-package com.test.spring.boot.model;
+package com.course.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
