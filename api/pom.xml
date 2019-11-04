@@ -12,9 +12,9 @@
     <artifactId>api</artifactId>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>13</maven.compiler.source>
         <maven.compiler.target>13</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.boot.mainClass>com.course.CourseApiApp</spring.boot.mainClass>
     </properties>
 
