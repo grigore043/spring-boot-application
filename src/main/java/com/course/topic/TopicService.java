@@ -1,7 +1,5 @@
 package com.course.topic;
 
-import com.course.dao.TopicRepository;
-import com.course.model.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

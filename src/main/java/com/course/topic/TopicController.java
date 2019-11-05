@@ -1,7 +1,7 @@
-package com.course.controller.rest.topic;
+package com.course.topic;
 
 import com.course.topic.TopicService;
-import com.course.model.Topic;
+import com.course.topic.Topic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

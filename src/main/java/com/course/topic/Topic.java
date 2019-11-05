@@ -1,4 +1,4 @@
-package com.course.model;
+package com.course.topic;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
